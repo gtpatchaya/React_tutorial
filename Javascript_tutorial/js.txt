@@ -1,0 +1,94 @@
+Javascript Begin
+
+funtion normal
+function plus(a,b){
+  return a+b
+}
+const result = plus(1,2)
+console.log(result)
+
+
+----- arrow functioin
+const result = (a,b) => a+b
+console.log(result(5,6))
+
+arrow function 
+const result =(a)=>(b) => a+b
+console.log(result(9)(10))
+-------------------------
+
+-----object
+const person={
+  id : 1,
+  name : 'supachai'
+}
+console.log(person.name)
+
+person.age = 30
+person.bool = true
+console.log(person)
+-------------------------
+
+-----Destrucring 
+const {name,id}= person
+console.log(name,id)
+
+const {name : Newname} = person
+console.log(Newname)
+-------------------------
+
+----- spread & rest Operator 
+const newPerson = {...person,book:true} 
+console.log(newPerson)
+
+//rest
+const {name , ...other} = newPerson;
+console.log(other)
+
+const num = [1,2,3,4]
+const NumWithFive = [...num , 5]
+console.log(NumWithFive)
+-------------------------
+
+----- map , filter , find/Index , reduce 
+
+** Not functional programming
+const nums = [1,2,3,4]
+for (let i =0 ; i < nums.length ; i++){
+   nums[i] += 5 ;
+}
+
+map:: 
+functional programming 
+const Newnums = nums.map(num => 
+     num = num * 5
+)
+
+//filter::
+const eventNum = nums.filter(num =>
+      num = num % 2
+                            )
+//find & findIndex 
+const numberTwo = nums.find(num => num===4)
+
+const index  = nums.findIndex(num => num===4)
+
+console.log(index)
+-------------------------
+
+//reduce 
+const sum = nums.reduce((acc,num) => acc += num ,0)
+
+console.log(sum)
+
+-----sync await
+const requestData = async () => {
+  const result = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await result.json()
+  
+  console.log(data)
+  return data;
+ }
+
+const data = requestData()
+console.log(data)
